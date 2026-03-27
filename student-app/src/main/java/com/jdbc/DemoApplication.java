@@ -1,6 +1,5 @@
 package com.jdbc;
 
-import com.jdbc.operation.*;
 import com.jdbc.operation.StudentOperations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,20 +10,9 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
+
 	@Autowired
 	private StudentOperations operations;
-
-	@Autowired
-	private InsertOperation insertOp;
-
-	@Autowired
-	private FindOperation findOp;
-
-	@Autowired
-	private FindAllOperation findAllOp;
-
-	@Autowired
-	private DeleteOperation deleteOp;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -40,10 +28,10 @@ public class DemoApplication implements CommandLineRunner {
 			int choice = sc.nextInt();
 
 			switch (choice) {
-				case 1 -> insertOp.execute();
-				case 2 -> findOp.execute();
-				case 3 -> findAllOp.execute();
-				case 4 -> deleteOp.execute();
+				case 1 -> operations.insertStudent();
+				case 2 -> operations.findStudent();
+				case 3 -> operations.findAllStudents();
+				case 4 -> operations.deleteStudent();
 				case 5 -> System.exit(0);
 				default -> System.out.println("Invalid choice");
 			}
