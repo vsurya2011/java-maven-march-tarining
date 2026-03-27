@@ -19,7 +19,7 @@ public class StudentOperations {
     private Scanner sc = new Scanner(System.in);
 
     public void insertStudent() {
-        sc.nextLine();
+
 
         System.out.print("Name: ");
         String name = sc.nextLine();
@@ -45,7 +45,7 @@ public class StudentOperations {
         s.setDob(dob);
 
         service.addStudent(s);
-        System.out.println("✅ Inserted Successfully");
+        System.out.println("Inserted Successfully");
     }
 
     public void findStudent() {
@@ -57,7 +57,7 @@ public class StudentOperations {
         if (s != null) {
             System.out.println(s);
         } else {
-            System.out.println("❌ Not Found");
+            System.out.println("Not Found");
         }
     }
 
@@ -77,6 +77,6 @@ public class StudentOperations {
         int regNo = sc.nextInt();
 
         service.deleteStudent(regNo);
-        System.out.println("🗑 Deleted Successfully");
+        System.out.println("Deleted Successfully");
     }
 }
